@@ -24,7 +24,7 @@ function MainSubjectShowPage() {
     const fetchSubjects = async () => {
       try {
         const res = await fetch(
-          `http://localhost:3000/api/get/${degree}/${branch}/subjects`,
+          `${process.env.BACKEND}/api/get/${degree}/${branch}/subjects`,
           {
             method: "GET",
             headers: {

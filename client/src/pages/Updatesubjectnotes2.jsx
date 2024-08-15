@@ -30,7 +30,7 @@ function UpdateSubjectNotes2() {
     const fetchData = async () => {
       try {
         const res = await fetch(
-          `http://localhost:3000/api/get/getsubject/${id}`,
+          `${process.env.BACKEND}/api/get/getsubject/${id}`,
           {
             method: "GET",
             headers: {
@@ -62,7 +62,7 @@ function UpdateSubjectNotes2() {
   const handleUpdate = async () => {
     try {
       const res = await fetch(
-        `http://localhost:3000/api/update/subjects/${id}`,
+        `${process.env.BACKEND}/api/update/subjects/${id}`,
         {
           method: "POST",
           headers: {
@@ -90,7 +90,7 @@ function UpdateSubjectNotes2() {
       await deleteObject(desertRef);
 
       const res = await fetch(
-        `http://localhost:3000/api/delete/subjectnotespdf/${subjectId}/${urlIndex}`,
+        `${process.env.BACKEND}/api/delete/subjectnotespdf/${subjectId}/${urlIndex}`,
         {
           method: "POST",
           headers: {

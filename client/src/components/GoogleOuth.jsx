@@ -16,7 +16,7 @@ dispatch(usersigninStart()) ;
 
       const result = await signInWithPopup(auth, provider);
 
-      const res = await fetch('http://localhost:3000/api/user/auth/google', {
+      const res = await fetch('{process.env.BACKEND}/api/user/auth/google', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

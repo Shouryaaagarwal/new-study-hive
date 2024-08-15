@@ -36,7 +36,7 @@ function DeletePage() {
     const fetchData = async () => {
       try {
         const res = await fetch(
-          `http://localhost:3000/api/get/${degree}/${branch}/subjects/${subject}/data`,
+          `${process.env.BACKEND}/api/get/${degree}/${branch}/subjects/${subject}/data`,
           {
             method: "GET",
             headers: {
@@ -62,7 +62,7 @@ function DeletePage() {
   const handledoclink = async (id, urlIndex , url) => {
     try {
       const res = await fetch(
-        `http://localhost:3000/api/delete/doclink/${id}/${urlIndex}`,
+        `${process.env.BACKEND}/api/delete/doclink/${id}/${urlIndex}`,
         {
           method: "POST",
           headers: {
@@ -96,7 +96,7 @@ function DeletePage() {
   const handlelink = async (id, urlindex , url) => {
     try {
       const res = await fetch(
-        `http://localhost:3000/api/delete/leclink/${id}/${urlindex}`,
+        `${process.env.BACKEND}/api/delete/leclink/${id}/${urlindex}`,
         {
           method: "POST",
           headers: {
@@ -133,7 +133,7 @@ function DeletePage() {
         .then(async () => {
           try {
             const res = await fetch(
-              `http://localhost:3000/api/delete/questionpaperspdf/${subjectid}/${urlindex}`,
+              `${process.env.BACKEND}/api/delete/questionpaperspdf/${subjectid}/${urlindex}`,
               {
                 method: "POST",
                 headers: {
@@ -179,7 +179,7 @@ function DeletePage() {
         .then(async () => {
           try {
             const res = await fetch(
-              `http://localhost:3000/api/delete/subjectnotespdf/${subjectid}/${urlIndex}`,
+              `{${process.env.BACKEND}/api/delete/subjectnotespdf/${subjectid}/${urlIndex}`,
               {
                 method: "POST",
                 headers: {

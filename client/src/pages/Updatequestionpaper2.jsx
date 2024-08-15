@@ -31,7 +31,7 @@ function UpdateQuestionPaper2() {
     const fetchData = async () => {
       try {
         const res = await fetch(
-          `http://localhost:3000/api/get/getsubject/${id}`,
+          `${process.env.BACKEND}/api/get/getsubject/${id}`,
           {
             method: "GET",
             headers: {
@@ -63,7 +63,7 @@ function UpdateQuestionPaper2() {
   const handleUpdate = async () => {
     try {
       const res = await fetch(
-        `http://localhost:3000/api/update/subjects/${id}`,
+        `${process.env.BACKEND}/api/update/subjects/${id}`,
         {
           method: "POST",
           headers: {
@@ -91,7 +91,7 @@ function UpdateQuestionPaper2() {
       await deleteObject(desertRef);
 
       const res = await fetch(
-        `http://localhost:3000/api/delete/questionpaperspdf/${subjectId}/${urlIndex}`,
+        `${process.env.BACKEND}/api/delete/questionpaperspdf/${subjectId}/${urlIndex}`,
         {
           method: "POST",
           headers: {

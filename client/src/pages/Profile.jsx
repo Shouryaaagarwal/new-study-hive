@@ -32,7 +32,7 @@ function Profile() {
     e.preventDefault();
     try {
       dispatch(usersignoutStart());
-      const res = await fetch("http://localhost:3000/api/user/auth/signout", {
+      const res = await fetch(`${process.env.BACKEND}/api/user/auth/signout`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -82,7 +82,7 @@ function Profile() {
       }
 
       const res = await fetch(
-        `http://localhost:3000/api/user/auth/updateuser/${currentUser._id}`,
+        `${process.env.BACKEND}/api/user/auth/updateuser/${currentUser._id}`,
         {
           method: "POST",
           headers: {

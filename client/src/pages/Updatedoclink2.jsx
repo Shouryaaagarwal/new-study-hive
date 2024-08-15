@@ -26,7 +26,7 @@ function Updatedoclinks() {
     const findData = async () => {
       try {
         const res = await fetch(
-          `http://localhost:3000/api/get/getsubject/${id}`,
+          `${process.env.BACKEND}/api/get/getsubject/${id}`,
           {
             method: "GET",
             headers: {
@@ -53,7 +53,7 @@ function Updatedoclinks() {
   const handleUpdate = async () => {
     try {
       const res = await fetch(
-        `http://localhost:3000/api/update/subjects/${id}`,
+        `${process.env.BACKEND}/api/update/subjects/${id}`,
         {
           method: "POST",
           headers: {
@@ -85,7 +85,7 @@ function Updatedoclinks() {
   const handleDocLink = async (id, url, urlIndex) => {
     try {
       const res = await fetch(
-        `http://localhost:3000/api/delete/doclink/${id}/${urlIndex}`,
+        `${process.env.BACKEND}/api/delete/doclink/${id}/${urlIndex}`,
         {
           method: "POST",
           headers: {

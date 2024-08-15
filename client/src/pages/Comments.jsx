@@ -33,7 +33,7 @@ function Comments() {
     setError(null); 
 
     try {
-      const res = await fetch(`http://localhost:3000/api/comment/create`, {
+      const res = await fetch(`${process.env.BACKEND}/api/comment/create`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
