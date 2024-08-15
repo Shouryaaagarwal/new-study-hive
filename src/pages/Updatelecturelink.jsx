@@ -6,7 +6,7 @@ import { useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router";
 import { NavLink } from "react-router-dom";
 import validator from "validator";
-import { formatDate } from "../../../api/Utils/date";
+import { formatDate } from "../Utils/date.js"
 import { IoArrowBack } from "react-icons/io5";
 
 function Updatelecturelinks() {

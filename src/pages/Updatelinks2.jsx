@@ -5,7 +5,7 @@ import { MdDelete } from "react-icons/md";
 import { useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router";
 import { NavLink } from "react-router-dom";
-import { formatDate } from "../../../api/Utils/date";
+import { formatDate } from "../Utils/date.js"
 import { IoArrowBack } from "react-icons/io5";
 
 function Updatelinks() {

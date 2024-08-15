@@ -6,7 +6,6 @@ import { useNavigate, useParams } from "react-router";
 import { Link, NavLink } from "react-router-dom";
 import { IoLinkSharp } from "react-icons/io5";
 import { MdInsertComment } from "react-icons/md";
-import { formatDate } from "../../../api/Utils/date";
 import { FaStar, FaRegFilePdf } from "react-icons/fa";
 import LoadingPage from "../components/LoadingPage";
 import Navigation from "../components/Navigation";
@@ -14,7 +13,7 @@ import { IoIosArrowDropdown, IoMdArrowRoundBack } from "react-icons/io";
 import { toggleStar } from "../Redux/Slices/starslice";
 import { stardoclink } from "../../../api/controllers/hit.controller";
 import { subjectFailure, subjectfetcherror } from "../Redux/Slices/subjectSlice";
-import { errorhandler } from "../../../api/Utils/errorhandler";
+import { errorhandler } from "../Utils/errorhandler.js";
 
 function MainData() {
   const { signin, loading } = useSelector((state) => state.admin);
@@ -424,11 +423,8 @@ function MainData() {
                             </Link>
                           </div>:""}
                           
-                          {/* <div className="text-[10px] sm:text-[15px]">
-                            {formatDate(item.createdAt)}
-                          </div> */}     
+                            
                           {Usersignin? <div>
-                            {/* {formatDate(item.createdAt)}  */}
                             <button
                               className={`${
                                 item.starsubjectnotes ? "text-yellow-400" : ""
@@ -499,11 +495,8 @@ function MainData() {
                             </Link>
                           </div>:""}
                          
-                          {/* <div className="text-[10px] sm:text-[15px]">
-                            {formatDate(item.createdAt)}
-                          </div> */}   
+                           
                           {Usersignin?<div>
-                            {/* {formatDate(item.createdAt)}  */}
                             <button
                               className={`${
                                 item.starquestionotes ? "text-yellow-400" : ""
@@ -573,12 +566,9 @@ function MainData() {
                             </Link>
                           </div>:""}
                          
-                          {/* <div className="text-[10px] sm:text-[15px]">
-                            {formatDate(item.createdAt)}
-                          </div> */}     
+                         
 
 <div>
-                            {/* {formatDate(item.createdAt)}  */} 
                             {Usersignin? <button
                               className={`${
                                 item.starlecandpdflink ? "text-yellow-400" : ""
@@ -653,9 +643,7 @@ function MainData() {
                             </Link>
                           </div>:""}
                          
-                          {/* <div className="text-[10px] sm:text-[15px]">
-                            {formatDate(item.createdAt)}
-                          </div> */}      
+                       
                             {Usersignin? <div>
                            <button
                               className={`${

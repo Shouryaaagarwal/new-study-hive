@@ -8,7 +8,7 @@ import { TiTick } from "react-icons/ti";
 import { IoWarning } from "react-icons/io5";
 import { NavLink } from "react-router-dom";
 import { IoMdArrowRoundBack } from "react-icons/io";
-import { errorhandler } from "../../../api/Utils/errorhandler";
+import { errorhandler } from "../Utils/errorhandler.js";
 
 function DocDeletePage() {
   const { degree, branch, subject } = useParams();
@@ -35,13 +35,13 @@ function DocDeletePage() {
 
         const data = await res.json();
         if (data.success === false) {
-          dispatch(errorhandler(404, "Subject Not Found"));
+          errorhandler(404, "Subject Not Found");
           return;
         }
 
         setSubjectData(data);
       } catch (error) {
-        dispatch(errorhandler(404, "Something went wrong"));
+        errorhandler(404, "Something went wrong");
         return;
       }
     };

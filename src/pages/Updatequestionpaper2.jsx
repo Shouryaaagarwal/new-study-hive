@@ -7,7 +7,7 @@ import { Link, NavLink } from "react-router-dom";
 import { app } from "../Firebase";
 import { getDownloadURL, uploadBytesResumable } from "firebase/storage";
 import { useSelector } from "react-redux";  
-import { formatDate } from "../../../api/Utils/date";
+import { formatDate } from "../Utils/date.js"
 import { IoArrowBack } from "react-icons/io5";
 
 

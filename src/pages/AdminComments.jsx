@@ -4,7 +4,7 @@ import Contact from "../components/Contacts";
 import { MdArrowOutward } from "react-icons/md";
 import { Link, useNavigate } from "react-router-dom";
 import Loading from "../components/LoadingPage";
-import { errorhandler } from "../../../api/Utils/errorhandler";
+import { errorhandler } from "../Utils/errorhandler.js";
 import { LiaExternalLinkAltSolid } from "react-icons/lia";
 
 function AdminComments() {
