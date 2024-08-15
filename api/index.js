@@ -2,7 +2,7 @@ import express from "express";
 
 import mongoose from "mongoose";
 import userRoute from "./routes/user.auth.route.js";
-import dotenv from "dotenv";
+import dotenv from "dotenv"
 import cookieParser from "cookie-parser";  
 import adminRoute from "./routes/admin.route.js" 
 import subjectRoute from "./routes/subject.route.js"  

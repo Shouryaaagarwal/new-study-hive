@@ -11,7 +11,6 @@ import LoadingPage from "../components/LoadingPage";
 import Navigation from "../components/Navigation";
 import { IoIosArrowDropdown, IoMdArrowRoundBack } from "react-icons/io";
 import { toggleStar } from "../Redux/Slices/starslice";
-import { stardoclink } from "../../../api/controllers/hit.controller";
 import { subjectFailure, subjectfetcherror } from "../Redux/Slices/subjectSlice";
 import { errorhandler } from "../Utils/errorhandler.js";
 
