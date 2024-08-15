@@ -1,0 +1,75 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;   
+
+@font-face{
+    font-family: mukta-medium; 
+    src:url(../public/Mukta-Medium.ttf)
+}
+@font-face{
+    font-family: mukta-bold; 
+    src:url(../public/Mukta-Bold.ttf)
+} 
+@font-face{
+    font-family: mukta-extrabold; 
+    src:url(../public/Mukta-ExtraBold.ttf)
+} 
+@font-face{
+    font-family: mukta-light; 
+    src:url(../public/Mukta-Light.ttf)
+} 
+@font-face{
+    font-family: mukta-regular; 
+    src:url(../public/Mukta-Regular.ttf)
+} 
+@font-face{
+    font-family: mukta-semibold; 
+    src:url(../public/Mukta-SemiBold.ttf)
+} 
+@font-face{
+    font-family: mukta-extralight; 
+    src:url(../public/Mukta-ExtraLight.ttf)
+} 
+.mukta-extralight{
+    font-family: mukta-extralight;
+}
+.mukta-medium{
+    font-family: "mukta-medium";
+} 
+.mukta-bold{ 
+    font-family: "mukta-bold";
+} 
+.mukta-extrabold{
+    font-family: "mukta-extrabold";
+} 
+.mukta-light{
+    font-family: "mukta-light";
+} 
+.mukta-regular{
+    font-family: "mukta-regular";
+} 
+.mukta-semibold{
+    font-family: "mukta-semibold";
+} 
+
+.custom-toast {
+    background-color: black !important;
+    color: white !important;
+  }
+   
+  .rotate-180 {
+    transform: rotate(180deg);
+    transition: transform 0.3s;  
+    
+     
+  } 
+
+  .noscrollbar {
+    @apply overflow-hidden;
+  }
+  
+  .scrollable-container {
+    @apply overflow-auto h-full;
+    @apply scrollbar-hide;
+  } 
+
