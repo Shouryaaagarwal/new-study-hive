@@ -120,7 +120,20 @@ function Updatedoclinks() {
 
   const handleLinksAddition = () => {
     const newLink = input.trim();
-    if (newLink && isValidURL(newLink)) {
+  
+    const isValidURL = (string) => {
+      try {
+        new URL(string);
+        return true;
+      } catch (_) {
+        return false;
+      }
+    };
+  
+    if (newLink === "") {
+      setErrorMessage("URL cannot be empty.");
+      setSuccessMessage("");
+    } else if (isValidURL(newLink)) {
       if (subjectData.documentationlink.length < 3) {
         setSubjectData((prevState) => ({
           ...prevState,

@@ -129,7 +129,27 @@ function Updatelinks() {
   
   const handleLinksAddition = () => {
     const newLink = input.trim();
-    if (newLink && isValidURL(newLink)) {
+    setErrorMessage("");
+    setSuccessMessage("");
+  
+    // Check if the URL is empty
+    if (newLink === "") {
+      setErrorMessage("URL cannot be empty.");
+      return;
+    }
+  
+    // Validate the URL
+    const isValidURL = (string) => {
+      try {
+        new URL(string);
+        return true;
+      } catch (_) {
+        return false;
+      }
+    };
+  
+    if (isValidURL(newLink)) {
+      // Check if fewer than 3 links exist, then add the new link
       if (subjectData.links.length < 3) {
         setSubjectData((prevState) => ({
           ...prevState,
@@ -137,16 +157,15 @@ function Updatelinks() {
         }));
         setInput("");
         setSuccessMessage("Link added successfully.");
-        setErrorMessage("");
       } else {
         setErrorMessage("You can only add up to 3 links.");
-        setSuccessMessage("");
       }
     } else {
+      // Handle invalid URL
       setErrorMessage("Please enter a valid URL.");
-      setSuccessMessage("");
     }
   };
+  
 
   return (
     <div className="w-full h-screen bg-black text-white">

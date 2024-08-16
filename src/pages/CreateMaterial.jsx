@@ -17,7 +17,6 @@ import {
 import { app } from "../Firebase";
 import Navigation from "../components/Navigation";
 import Contact from "../components/Contacts";
-import validator from "validator";
 import { IoLinkSharp } from "react-icons/io5";
 import { FaRegFilePdf } from "react-icons/fa";
 import { deleteerror } from "../Redux/Slices/deleteSlice";
@@ -193,13 +192,22 @@ function CreateMaterial() {
     const newLink = input.trim();
     setlinksuccess("");
     setlinksfaliure("");
-
+  
     if (newLink === "") {
       setlinksfaliure("URL cannot be empty");
       return;
     }
-
-    if (validator.isURL(newLink)) {
+  
+    const isValidURL = (string) => {
+      try {
+        new URL(string);
+        return true;
+      } catch (_) {
+        return false;
+      }
+    };
+  
+    if (isValidURL(newLink)) {
       if (formData.links.length < 3) {
         setFormData((prevState) => ({
           ...prevState,
@@ -214,19 +222,32 @@ function CreateMaterial() {
       setlinksfaliure("Invalid URL");
     }
   };
+  
   const handleDocLinks = (e) => {
     e.preventDefault();
     const newLink = input2.trim();
     setdoclinksfaliure("");
     setdoclinksuccess("");
-
+  
+    // Check if the URL is empty
     if (newLink === "") {
       setdoclinksfaliure("URL cannot be empty");
       return;
     }
-
-
-    if (newLink && validator.isURL(newLink)) {
+  
+    // Validate the URL
+    const isValidURL = (string) => {
+      try {
+        new URL(string);
+        return true;
+      } catch (_) {
+        return false;
+      }
+    };
+  
+    // Check if the URL is valid
+    if (isValidURL(newLink)) {
+      // Check if fewer than 3 links exist, then add the new link
       if (formData.documentationlink.length < 3) {
         setFormData((prevdata) => ({
           ...prevdata,
@@ -235,12 +256,15 @@ function CreateMaterial() {
         setinput2("");
         setdoclinksuccess("Link Added");
       } else {
-        setdoclinksfaliure("You can add upto 3 links");
+        setdoclinksfaliure("You can add up to 3 links");
       }
     } else {
+      // Handle invalid URL
       setdoclinksfaliure("Invalid URL");
     }
   };
+  
+  
 
   const removeLink = (index) => {
     setFormData((prevState) => ({
