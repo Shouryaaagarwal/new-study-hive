@@ -28,7 +28,7 @@ function Updatelecturelinks() {
     const findData = async () => {
       try {
         const res = await fetch(
-          `${process.env.BACKEND}/api/get/getsubject/${id}`,
+          `${import.meta.env.VITE_BE}/api/get/getsubject/${id}`,
           {
             method: "GET",
             headers: {
@@ -57,9 +57,9 @@ function Updatelecturelinks() {
   const handleUpdate = async () => {
     try {
       const res = await fetch(
-        `${process.env.BACKEND}/api/update/subjects/${id}`,
+        `${import.meta.env.VITE_BE}/api/update/subjects/${id}`,
         {
-          method: "POST",
+          method: "POST",    
           headers: {
             "Content-Type": "application/json",
           },
@@ -92,7 +92,7 @@ function Updatelecturelinks() {
   const handleLink = async (id, url, urlIndex) => {
     try {
       const res = await fetch(
-        `${process.env.BACKEND}/api/delete/leclink/${id}/${urlIndex}`,
+        `${import.meta.env.VITE_BE}/api/delete/leclink/${id}/${urlIndex}`,
         {
           method: "POST",
           headers: {
