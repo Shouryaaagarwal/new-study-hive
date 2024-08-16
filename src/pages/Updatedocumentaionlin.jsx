@@ -28,7 +28,7 @@ function Updatedocumentaionlinks() {
   useEffect(() => {
     const findData = async () => {
       try {
-        const res = await fetch(`${process.env.BACKEND}/api/get/getsubject/${id}`, {
+        const res = await fetch(`${import.meta.env.VITE_BE}/api/get/getsubject/${id}`, {
           method: "GET",
           headers: {
             "Content-Type": "application/json",
@@ -52,7 +52,7 @@ function Updatedocumentaionlinks() {
 
   const handleUpdate = async () => {
     try {
-      const res = await fetch(`${process.env.BACKEND}/api/update/subjects/${id}`, {
+      const res = await fetch(`${import.meta.env.VITE_BE}/api/update/subjects/${id}`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -81,7 +81,7 @@ function Updatedocumentaionlinks() {
 
   const handleDocLink = async (id, url, urlIndex) => {
     try {
-      const res = await fetch(`${process.env.BACKEND}/api/delete/doclink/${id}/${urlIndex}`, {
+      const res = await fetch(`${import.meta.env.VITE_BE}/api/delete/doclink/${id}/${urlIndex}`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

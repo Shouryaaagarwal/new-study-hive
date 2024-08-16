@@ -32,7 +32,7 @@ function AdminSignIn() {
     setErrorMessage("");
     try {
       dispatch(adminsigninStart());
-      const res = await fetch(`${process.env.BACKEND}/api/admin/auth/signin`, {
+      const res = await fetch(`${import.meta.env.VITE_BE}/api/admin/auth/signin`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json"

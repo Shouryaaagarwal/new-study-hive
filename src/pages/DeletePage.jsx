@@ -35,7 +35,7 @@ function DeletePage() {
     const fetchData = async () => {
       try {
         const res = await fetch(
-          `${process.env.BACKEND}/api/get/${degree}/${branch}/subjects/${subject}/data`,
+          `${import.meta.env.VITE_BE}/api/get/${degree}/${branch}/subjects/${subject}/data`,
           {
             method: "GET",
             headers: {
@@ -61,7 +61,7 @@ function DeletePage() {
   const handledoclink = async (id, urlIndex , url) => {
     try {
       const res = await fetch(
-        `${process.env.BACKEND}/api/delete/doclink/${id}/${urlIndex}`,
+        `${import.meta.env.VITE_BE}/api/delete/doclink/${id}/${urlIndex}`,
         {
           method: "POST",
           headers: {
@@ -95,7 +95,7 @@ function DeletePage() {
   const handlelink = async (id, urlindex , url) => {
     try {
       const res = await fetch(
-        `${process.env.BACKEND}/api/delete/leclink/${id}/${urlindex}`,
+        `${import.meta.env.VITE_BE}/api/delete/leclink/${id}/${urlindex}`,
         {
           method: "POST",
           headers: {
@@ -132,7 +132,7 @@ function DeletePage() {
         .then(async () => {
           try {
             const res = await fetch(
-              `${process.env.BACKEND}/api/delete/questionpaperspdf/${subjectid}/${urlindex}`,
+              `${import.meta.env.VITE_BE}/api/delete/questionpaperspdf/${subjectid}/${urlindex}`,
               {
                 method: "POST",
                 headers: {
@@ -178,7 +178,7 @@ function DeletePage() {
         .then(async () => {
           try {
             const res = await fetch(
-              `{${process.env.BACKEND}/api/delete/subjectnotespdf/${subjectid}/${urlIndex}`,
+              `{${import.meta.env.VITE_BE}/api/delete/subjectnotespdf/${subjectid}/${urlIndex}`,
               {
                 method: "POST",
                 headers: {

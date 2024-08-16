@@ -13,7 +13,7 @@ function AdminComments() {
 
   useEffect(() => {
     const getComment = async () => {
-      const res = await fetch(`${process.env.BACKEND}/api/comment/get`, {
+      const res = await fetch(`${import.meta.env.VITE_BE}/api/comment/get`, {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
@@ -33,7 +33,7 @@ function AdminComments() {
   const handledelete = async (id) => {
     try {
       const res = await fetch(
-        `${process.env.BACKEND}/api/comment/delete/${id}`,
+        `${import.meta.env.VITE_BE}/api/comment/delete/${id}`,
         {
           method: "DELETE",
           headers: {

@@ -24,7 +24,7 @@ function MainSubjectShowPage() {
     const fetchSubjects = async () => {
       try {
         const res = await fetch(
-          `${process.env.BACKEND}/api/get/${degree}/${branch}/subjects`,
+          `${import.meta.env.VITE_BE}/api/get/${degree}/${branch}/subjects`,
           {
             method: "GET",
             headers: {

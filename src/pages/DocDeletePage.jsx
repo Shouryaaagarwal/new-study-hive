@@ -24,7 +24,7 @@ function DocDeletePage() {
     const fetchSubjectsData = async () => {
       try {
         const res = await fetch(
-          `${process.env.BACKEND}/api/get/${degree}/${branch}/subjects/${subject}/data`,
+          `${import.meta.env.VITE_BE}/api/get/${degree}/${branch}/subjects/${subject}/data`,
           {
             method: "GET",
             headers: {
@@ -56,7 +56,7 @@ function DocDeletePage() {
 
   const handleDelete = async (id) => {
     const res = await fetch(
-      `${process.env.BACKEND}/api/delete/subjectDoc/${id}`,
+      `${import.meta.env.VITE_BE}/api/delete/subjectDoc/${id}`,
       {
         method: "DELETE",
         headers: {

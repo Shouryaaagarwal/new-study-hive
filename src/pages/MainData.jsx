@@ -32,7 +32,7 @@ function MainData() {
     const fetchData = async () => {
       try {
         const res = await fetch(
-          `${process.env.BACKEND}/api/get/${degree}/${branch}/subjects/${subject}/data`,
+          `${import.meta.env.VITE_BE}/api/get/${degree}/${branch}/subjects/${subject}/data`,
           {
             method: "GET",
             headers: {
@@ -61,7 +61,7 @@ function MainData() {
   const togglequesstar = async (id) => {
     try {
       const res = await fetch(
-        `${process.env.BACKEND}/api/star/questionpaper/${id}`,
+        `${import.meta.env.VITE_BE}/api/star/questionpaper/${id}`,
         {
           method: "POST",
           headers: {
@@ -102,7 +102,7 @@ function MainData() {
   const togglesubjectnotes = async (id) => {
     try {
       const res = await fetch(
-        `${process.env.BACKEND}/api/star/subjectnotes/${id}`,
+        `${import.meta.env.VITE_BE}/api/star/subjectnotes/${id}`,
         {
           method: "POST",
           headers: {
@@ -140,7 +140,7 @@ function MainData() {
   const togglelecandpdflink = async (id) => {
     try {
       const res = await fetch(
-        `${process.env.BACKEND}/api/star/lecandpdflink/${id}`,
+        `${import.meta.env.VITE_BE}/api/star/lecandpdflink/${id}`,
         {
           method: "POST",
           headers: {
@@ -177,7 +177,7 @@ function MainData() {
   const toggledoclink = async (id) => {
     try {
       const res = await fetch(
-        `${process.env.BACKEND}/api/star/doclink/${id}`,
+        `${import.meta.env.VITE_BE}/api/star/doclink/${id}`,
         {
           method: "POST",
           headers: {

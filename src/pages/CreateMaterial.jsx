@@ -69,7 +69,7 @@ function CreateMaterial() {
     dispatch(subjectmadeStart());
     try {
       const res = await fetch(
-        `${process.env.BACKEND}/api/admin/create/subject`,
+        `${import.meta.env.VITE_BE}/api/admin/create/subject`,
         {
           method: "POST",
           headers: {

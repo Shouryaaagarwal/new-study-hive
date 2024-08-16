@@ -33,7 +33,7 @@ function Comments() {
     setError(null); 
 
     try {
-      const res = await fetch(`${process.env.BACKEND}/api/comment/create`, {
+      const res = await fetch(`${import.meta.env.VITE_BE}/api/comment/create`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
