@@ -394,7 +394,7 @@ function UpdateSubjectNotes() {
           </div>
         </div>
       </div> 
-      <div className="w-full md:h-[55vh] h-[40vh] mt-20  bg-black"> </div>
+      <div className="w-full md:h-[60vh] h-[40vh]  bg-black"> </div>
 
     </div>
   );

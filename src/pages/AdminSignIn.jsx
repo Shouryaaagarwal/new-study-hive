@@ -102,7 +102,7 @@ function AdminSignIn() {
             </div>
           </div>
         </div>
-      <div className="w-full md:h-[60vh] sm:h-[30vh] h-[35vh] sm:mt-40 mt-40 md:mt-[100px] bg-black"> </div> 
+      <div className="w-full md:h-[60vh] sm:h-[30vh] h-[35vh] sm:mt-40  md:mt-[100px] bg-black"> </div> 
 
       </div>} 
 

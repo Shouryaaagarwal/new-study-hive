@@ -391,7 +391,7 @@ function UpdateQuestionPaper2() {
           </div>
         </div>
       </div> 
-      <div className="w-full md:h-[55vh] h-[40vh] mt-20  bg-black"> </div>
+      <div className="w-full md:h-[55vh] h-[40vh] md:mt-20  bg-black"> </div>
 
     </div>
   );
