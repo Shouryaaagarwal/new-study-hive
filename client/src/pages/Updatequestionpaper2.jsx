@@ -7,7 +7,7 @@ import { Link, NavLink } from "react-router-dom";
 import { app } from "../Firebase";
 import { getDownloadURL, uploadBytesResumable } from "firebase/storage";
 import { useSelector } from "react-redux";  
-import { formatDate } from "../../../api/Utils/date";
+import { formatDate } from "../Utils/date.js"
 import { IoArrowBack } from "react-icons/io5";
 
 
@@ -31,7 +31,7 @@ function UpdateQuestionPaper2() {
     const fetchData = async () => {
       try {
         const res = await fetch(
-          `${process.env.BACKEND}/api/get/getsubject/${id}`,
+          `${import.meta.env.VITE_BE}/api/get/getsubject/${id}`,
           {
             method: "GET",
             headers: {
@@ -63,7 +63,7 @@ function UpdateQuestionPaper2() {
   const handleUpdate = async () => {
     try {
       const res = await fetch(
-        `${process.env.BACKEND}/api/update/subjects/${id}`,
+        `${import.meta.env.VITE_BE}/api/update/subjects/${id}`,
         {
           method: "POST",
           headers: {
@@ -91,7 +91,7 @@ function UpdateQuestionPaper2() {
       await deleteObject(desertRef);
 
       const res = await fetch(
-        `${process.env.BACKEND}/api/delete/questionpaperspdf/${subjectId}/${urlIndex}`,
+        `${import.meta.env.VITE_BE}/api/delete/questionpaperspdf/${subjectId}/${urlIndex}`,
         {
           method: "POST",
           headers: {
@@ -391,7 +391,7 @@ function UpdateQuestionPaper2() {
           </div>
         </div>
       </div> 
-      <div className="w-full md:h-[55vh] h-[40vh] mt-20  bg-black"> </div>
+      <div className="w-full md:h-[55vh] h-[40vh] md:mt-20  bg-black"> </div>
 
     </div>
   );

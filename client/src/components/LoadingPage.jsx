@@ -8,7 +8,7 @@ function LoadingPage() {
   useEffect(() => {    
     const timer = setTimeout(() => {
       navigate('/error'); 
-    }, 20000);
+    }, 100000);
 
     return () => clearTimeout(timer);
   }, [navigate]);

@@ -5,7 +5,7 @@ import { MdDelete } from "react-icons/md";
 import { useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router";
 import { NavLink } from "react-router-dom";
-import { formatDate } from "../../../api/Utils/date";
+import { formatDate } from "../Utils/date.js"
 import { IoArrowBack } from "react-icons/io5";
 
 function Updatelinks() {
@@ -28,7 +28,7 @@ function Updatelinks() {
     const findData = async () => {
       try {
         const res = await fetch(
-          `${process.env.BACKEND}/api/get/getsubject/${id}`,
+          `${import.meta.env.VITE_BE}/api/get/getsubject/${id}`,
           {
             method: "GET",
             headers: {
@@ -57,7 +57,7 @@ function Updatelinks() {
   const handleUpdate = async () => {
     try {
       const res = await fetch(
-        `${process.env.BACKEND}/api/update/subjects/${id}`,
+        `${import.meta.env.VITE_BE}/api/update/subjects/${id}`,
         {
           method: "POST",
           headers: {
@@ -92,7 +92,7 @@ function Updatelinks() {
   const handleLink = async (id, url, urlIndex) => {
     try {
       const res = await fetch(
-        `${process.env.BACKEND}/api/delete/leclink/${id}/${urlIndex}`,
+        `${import.meta.env.VITE_BE}/api/delete/leclink/${id}/${urlIndex}`,
         {
           method: "POST",
           headers: {
@@ -129,7 +129,27 @@ function Updatelinks() {
   
   const handleLinksAddition = () => {
     const newLink = input.trim();
-    if (newLink && isValidURL(newLink)) {
+    setErrorMessage("");
+    setSuccessMessage("");
+  
+    // Check if the URL is empty
+    if (newLink === "") {
+      setErrorMessage("URL cannot be empty.");
+      return;
+    }
+  
+    // Validate the URL
+    const isValidURL = (string) => {
+      try {
+        new URL(string);
+        return true;
+      } catch (_) {
+        return false;
+      }
+    };
+  
+    if (isValidURL(newLink)) {
+      // Check if fewer than 3 links exist, then add the new link
       if (subjectData.links.length < 3) {
         setSubjectData((prevState) => ({
           ...prevState,
@@ -137,16 +157,15 @@ function Updatelinks() {
         }));
         setInput("");
         setSuccessMessage("Link added successfully.");
-        setErrorMessage("");
       } else {
         setErrorMessage("You can only add up to 3 links.");
-        setSuccessMessage("");
       }
     } else {
+      // Handle invalid URL
       setErrorMessage("Please enter a valid URL.");
-      setSuccessMessage("");
     }
   };
+  
 
   return (
     <div className="w-full h-screen bg-black text-white">

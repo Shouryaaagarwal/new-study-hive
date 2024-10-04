@@ -13,7 +13,6 @@ import { deleteerror } from "../Redux/Slices/deleteSlice";
 import LoadingPage from "../components/LoadingPage";
 import { IoIosArrowDropdown, IoMdArrowRoundBack } from "react-icons/io";
 import { GrDocumentUpdate } from "react-icons/gr";
-import { formatDate } from "../../../api/Utils/date";   
 import {
   subjectFailure,
   
@@ -36,7 +35,7 @@ function DeletePage() {
     const fetchData = async () => {
       try {
         const res = await fetch(
-          `${process.env.BACKEND}/api/get/${degree}/${branch}/subjects/${subject}/data`,
+          `${import.meta.env.VITE_BE}/api/get/${degree}/${branch}/subjects/${subject}/data`,
           {
             method: "GET",
             headers: {
@@ -62,7 +61,7 @@ function DeletePage() {
   const handledoclink = async (id, urlIndex , url) => {
     try {
       const res = await fetch(
-        `${process.env.BACKEND}/api/delete/doclink/${id}/${urlIndex}`,
+        `${import.meta.env.VITE_BE}/api/delete/doclink/${id}/${urlIndex}`,
         {
           method: "POST",
           headers: {
@@ -96,7 +95,7 @@ function DeletePage() {
   const handlelink = async (id, urlindex , url) => {
     try {
       const res = await fetch(
-        `${process.env.BACKEND}/api/delete/leclink/${id}/${urlindex}`,
+        `${import.meta.env.VITE_BE}/api/delete/leclink/${id}/${urlindex}`,
         {
           method: "POST",
           headers: {
@@ -133,7 +132,7 @@ function DeletePage() {
         .then(async () => {
           try {
             const res = await fetch(
-              `${process.env.BACKEND}/api/delete/questionpaperspdf/${subjectid}/${urlindex}`,
+              `${import.meta.env.VITE_BE}/api/delete/questionpaperspdf/${subjectid}/${urlindex}`,
               {
                 method: "POST",
                 headers: {
@@ -179,7 +178,7 @@ function DeletePage() {
         .then(async () => {
           try {
             const res = await fetch(
-              `{${process.env.BACKEND}/api/delete/subjectnotespdf/${subjectid}/${urlIndex}`,
+              `{${import.meta.env.VITE_BE}/api/delete/subjectnotespdf/${subjectid}/${urlIndex}`,
               {
                 method: "POST",
                 headers: {
@@ -383,96 +382,7 @@ function DeletePage() {
            
 
             <div className="w-full mt-7  ">
-              {/* <div className="section ">
-                <div
-                  className="section-title flex  justify-between   cursor-pointer mb-3 ml-4 border-[1px] text-white w-[70.5%] px-4 h-16 py-4 rounded-xl"
-                  onClick={() => setShowPDF(!showPDF)}
-                >
-                  <div className="mukta-extralight font-semibold">
-                    Subject Notes
-                  </div>
-                  <div className="">
-                    <button
-                      className={`hover:scale-105 hover:opacity-[0.3] hover:transition-transform hover:duration-300 ${
-                        showPDF ? "rotate-180 opacity-[0.4]" : ""
-                      }`}
-                    >
-                      <IoIosArrowDropdown size={24} />
-                    </button>
-                  </div>
-                </div>
-                {showPDF && (
-                  <div className="bg-white bg-opacity-[0.1] pt-[5px] mb-4 ml-14 rounded-xl mt-3">
-                    <div className="section-content ml-1 flex flex-col gap-2 pb-1 w-[99%] rounded-lg">
-                      {subjectData.map(
-                        (item) =>
-                          item.subjectnotesUrls.length > 0 && (
-                            <div
-                              key={item._id}
-                              className="flex gap-2 py-2 bg-black rounded-lg"
-                            >
-                              <div className="w-[100%] h-14 p-4 py-3 ml-2 bg-black text-white border-[1px] border-opacity-[0.3] border-white rounded-lg">
-                                {item.pdfdescription || "No data available"}
-                              </div>
-                              <div className="ml-6 bg-black flex gap-10 text-white w-[40%] p-4 py-3 rounded-lg">
-                                <div className="flex flex-row gap-10">
-                                  <div className="flex flex-col gap-4">
-                                    {item.subjectnotesUrls.map(
-                                      (url, urlIndex) => (
-                                        <Link
-                                          className=""
-                                          onClick={() =>
-                                            window.open(url, "_blank")
-                                          }
-                                          key={urlIndex}
-                                        >
-                                          <FaRegFilePdf
-                                            className=""
-                                            size={24}
-                                          />
-                                        </Link>
-                                      )
-                                    )}
-                                  </div>
-                                  <div>
-                                    <div className="flex flex-col gap-2  ">
-                                      {item.subjectnotesUrls.map(
-                                        (url, urlIndex) => (
-                                          <div className="text-red-600  hover:scale:110 transition-transform duration-300">
-                                            <button
-                                              className="hover:scale:110 transition-transform duration-300"
-                                              onClick={() =>
-                                                handleDeletePDF(
-                                                  item._id,
-                                                  urlIndex,
-                                                  url
-                                                )
-                                              }
-                                            >
-                                              <MdDelete size={26} />
-                                            </button>
-                                          </div>
-                                        )
-                                      )}
-                                    </div>
-                                  </div>
-                                  <div>
-                                    <button>
-                                      <GrDocumentUpdate size={24} />
-                                    </button>
-                                  </div>
-                                  <div className="text-xs">
-                                    {formatDate(item.createdAt)}
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                          )
-                      )}
-                    </div>
-                  </div>
-                )}
-              </div> */}
+             
               <div className="section">
                 <div
                   className="section-title flex justify-between p-4 cursor-pointer mb-3 ml-4 border-[1px] text-white w-[70.5%]  h-16 py-4 rounded-xl"
@@ -557,92 +467,7 @@ function DeletePage() {
                 )}
               </div>
 
-              {/* <div className="section">
-                <div
-                  className="section-title flex  justify-between   cursor-pointer mb-3 ml-4 border-[1px] text-white w-[70.5%] px-4 h-16 py-4 rounded-xl"
-                  onClick={() => setShowQuestionPapers(!showQuestionPapers)}
-                >
-                  <div className="mukta-extralight font-semibold">
-                    Question Papers
-                  </div>
-                  <div>
-                    <button
-                      className={`hover:scale-105 hover:opacity-[0.3] hover:transition-transform hover:duration-300 ${
-                        showQuestionPapers ? "rotate-180 opacity-[0.4]" : ""
-                      }`}
-                    >
-                      <IoIosArrowDropdown size={24} />
-                    </button>
-                  </div>
-                </div>
-                {showQuestionPapers && (
-                  <div className="bg-white bg-opacity-[0.1] pt-[5px] mb-4 ml-14 rounded-xl mt-3">
-                    <div className="section-content ml-1 flex flex-col gap-2 pb-1 w-[99%] rounded-lg">
-                      {subjectData.map(
-                        (item) =>
-                          item.questionpaperUrls.length > 0 && (
-                            <div
-                              key={item._id}
-                              className="flex gap-2 py-2 bg-black rounded-lg"
-                            >
-                              <div className="w-[100%] h-14 p-4 py-3 ml-2 bg-black text-white border-[1px] border-opacity-[0.3] border-white rounded-lg">
-                                {item.questionpaperdec || "No Data Available"}
-                              </div>
-                              <div className="ml-6 bg-black flex gap-10 text-white w-[40%] p-4 py-3 rounded-lg">
-                                <div className="flex flex-col gap-4">
-                                  {item.questionpaperUrls.map(
-                                    (url, urlIndex) => (
-                                      <Link
-                                        className=""
-                                        onClick={() =>
-                                          window.open(url, "_blank")
-                                        }
-                                        key={urlIndex}
-                                      >
-                                        <FaRegFilePdf className="" size={24} />
-                                      </Link>
-                                    )
-                                  )}
-                                </div>
-                                <div className="text-red-600 flex flex-col gap-2">
-                                  {item.questionpaperUrls.map(
-                                    (url, urlIndex) => (
-                                      <div
-                                        key={urlIndex}
-                                        className="text-red-600 hover:scale-110 transition-transform duration-300"
-                                      >
-                                        <button
-                                          className="hover:scale-110 transition-transform duration-300"
-                                          onClick={() =>
-                                            handleDeletequestionpaperPDF(
-                                              item._id,
-                                              urlIndex,
-                                              url
-                                            )
-                                          }
-                                        >
-                                          <MdDelete size={26} />
-                                        </button>
-                                      </div>
-                                    )
-                                  )}
-                                </div>
-                                <div>
-                                  <button>
-                                    <GrDocumentUpdate size={24} />
-                                  </button>
-                                </div>
-                                <div className="text-xs">
-                                  {formatDate(item.createdAt)}
-                                </div>
-                              </div>
-                            </div>
-                          )
-                      )}
-                    </div>
-                  </div>
-                )}
-              </div> */}
+             
               <div className="section">
                 <div
                   className="section-title flex justify-between cursor-pointer mb-3 ml-4 border-[1px] text-white w-[70.5%] px-4 h-16 py-4 rounded-xl"

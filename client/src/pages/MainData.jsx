@@ -6,15 +6,13 @@ import { useNavigate, useParams } from "react-router";
 import { Link, NavLink } from "react-router-dom";
 import { IoLinkSharp } from "react-icons/io5";
 import { MdInsertComment } from "react-icons/md";
-import { formatDate } from "../../../api/Utils/date";
 import { FaStar, FaRegFilePdf } from "react-icons/fa";
 import LoadingPage from "../components/LoadingPage";
 import Navigation from "../components/Navigation";
 import { IoIosArrowDropdown, IoMdArrowRoundBack } from "react-icons/io";
 import { toggleStar } from "../Redux/Slices/starslice";
-import { stardoclink } from "../../../api/controllers/hit.controller";
 import { subjectFailure, subjectfetcherror } from "../Redux/Slices/subjectSlice";
-import { errorhandler } from "../../../api/Utils/errorhandler";
+import { errorhandler } from "../Utils/errorhandler.js";
 
 function MainData() {
   const { signin, loading } = useSelector((state) => state.admin);
@@ -34,7 +32,7 @@ function MainData() {
     const fetchData = async () => {
       try {
         const res = await fetch(
-          `${process.env.BACKEND}/api/get/${degree}/${branch}/subjects/${subject}/data`,
+          `${import.meta.env.VITE_BE}/api/get/${degree}/${branch}/subjects/${subject}/data`,
           {
             method: "GET",
             headers: {
@@ -63,7 +61,7 @@ function MainData() {
   const togglequesstar = async (id) => {
     try {
       const res = await fetch(
-        `${process.env.BACKEND}/api/star/questionpaper/${id}`,
+        `${import.meta.env.VITE_BE}/api/star/questionpaper/${id}`,
         {
           method: "POST",
           headers: {
@@ -104,7 +102,7 @@ function MainData() {
   const togglesubjectnotes = async (id) => {
     try {
       const res = await fetch(
-        `${process.env.BACKEND}/api/star/subjectnotes/${id}`,
+        `${import.meta.env.VITE_BE}/api/star/subjectnotes/${id}`,
         {
           method: "POST",
           headers: {
@@ -142,7 +140,7 @@ function MainData() {
   const togglelecandpdflink = async (id) => {
     try {
       const res = await fetch(
-        `${process.env.BACKEND}/api/star/lecandpdflink/${id}`,
+        `${import.meta.env.VITE_BE}/api/star/lecandpdflink/${id}`,
         {
           method: "POST",
           headers: {
@@ -179,7 +177,7 @@ function MainData() {
   const toggledoclink = async (id) => {
     try {
       const res = await fetch(
-        `${process.env.BACKEND}/api/star/doclink/${id}`,
+        `${import.meta.env.VITE_BE}/api/star/doclink/${id}`,
         {
           method: "POST",
           headers: {
@@ -424,11 +422,8 @@ function MainData() {
                             </Link>
                           </div>:""}
                           
-                          {/* <div className="text-[10px] sm:text-[15px]">
-                            {formatDate(item.createdAt)}
-                          </div> */}     
+                            
                           {Usersignin? <div>
-                            {/* {formatDate(item.createdAt)}  */}
                             <button
                               className={`${
                                 item.starsubjectnotes ? "text-yellow-400" : ""
@@ -499,11 +494,8 @@ function MainData() {
                             </Link>
                           </div>:""}
                          
-                          {/* <div className="text-[10px] sm:text-[15px]">
-                            {formatDate(item.createdAt)}
-                          </div> */}   
+                           
                           {Usersignin?<div>
-                            {/* {formatDate(item.createdAt)}  */}
                             <button
                               className={`${
                                 item.starquestionotes ? "text-yellow-400" : ""
@@ -573,12 +565,9 @@ function MainData() {
                             </Link>
                           </div>:""}
                          
-                          {/* <div className="text-[10px] sm:text-[15px]">
-                            {formatDate(item.createdAt)}
-                          </div> */}     
+                         
 
 <div>
-                            {/* {formatDate(item.createdAt)}  */} 
                             {Usersignin? <button
                               className={`${
                                 item.starlecandpdflink ? "text-yellow-400" : ""
@@ -653,9 +642,7 @@ function MainData() {
                             </Link>
                           </div>:""}
                          
-                          {/* <div className="text-[10px] sm:text-[15px]">
-                            {formatDate(item.createdAt)}
-                          </div> */}      
+                       
                             {Usersignin? <div>
                            <button
                               className={`${

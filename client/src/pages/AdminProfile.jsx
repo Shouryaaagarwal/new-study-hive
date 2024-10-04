@@ -32,7 +32,7 @@ function AdminProfile() {
     e.preventDefault();
     try {
       dispatch(adminsignoutStart(true));
-      const res = await fetch(`${process.env.BACKEND}/api/admin/auth/signout`, {
+      const res = await fetch(`${import.meta.env.VITE_BE}/api/admin/auth/signout`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

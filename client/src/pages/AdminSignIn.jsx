@@ -32,7 +32,7 @@ function AdminSignIn() {
     setErrorMessage("");
     try {
       dispatch(adminsigninStart());
-      const res = await fetch(`${process.env.BACKEND}/api/admin/auth/signin`, {
+      const res = await fetch(`${import.meta.env.VITE_BE}/api/admin/auth/signin`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json"
@@ -67,7 +67,7 @@ function AdminSignIn() {
           <div className="flex flex-col w-full h-[90%] gap-5 items-center">
             {errorMessage && <p className="text-red-500">{errorMessage}</p>}
             <div className="flex flex-col gap-4 items-center"> 
-            <input
+            <input 
                 type="text"
                 id="username"
                 placeholder="Admin Name"
@@ -102,7 +102,7 @@ function AdminSignIn() {
             </div>
           </div>
         </div>
-      <div className="w-full md:h-[60vh] sm:h-[30vh] h-[35vh] sm:mt-40 mt-40 md:mt-[100px] bg-black"> </div> 
+      <div className="w-full md:h-[60vh] sm:h-[30vh] h-[35vh] sm:mt-40  md:mt-[100px] bg-black"> </div> 
 
       </div>} 
 

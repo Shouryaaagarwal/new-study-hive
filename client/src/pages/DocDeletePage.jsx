@@ -8,7 +8,7 @@ import { TiTick } from "react-icons/ti";
 import { IoWarning } from "react-icons/io5";
 import { NavLink } from "react-router-dom";
 import { IoMdArrowRoundBack } from "react-icons/io";
-import { errorhandler } from "../../../api/Utils/errorhandler";
+import { errorhandler } from "../Utils/errorhandler.js";
 
 function DocDeletePage() {
   const { degree, branch, subject } = useParams();
@@ -24,7 +24,7 @@ function DocDeletePage() {
     const fetchSubjectsData = async () => {
       try {
         const res = await fetch(
-          `${process.env.BACKEND}/api/get/${degree}/${branch}/subjects/${subject}/data`,
+          `${import.meta.env.VITE_BE}/api/get/${degree}/${branch}/subjects/${subject}/data`,
           {
             method: "GET",
             headers: {
@@ -35,13 +35,13 @@ function DocDeletePage() {
 
         const data = await res.json();
         if (data.success === false) {
-          dispatch(errorhandler(404, "Subject Not Found"));
+          errorhandler(404, "Subject Not Found");
           return;
         }
 
         setSubjectData(data);
       } catch (error) {
-        dispatch(errorhandler(404, "Something went wrong"));
+        errorhandler(404, "Something went wrong");
         return;
       }
     };
@@ -56,7 +56,7 @@ function DocDeletePage() {
 
   const handleDelete = async (id) => {
     const res = await fetch(
-      `${process.env.BACKEND}/api/delete/subjectDoc/${id}`,
+      `${import.meta.env.VITE_BE}/api/delete/subjectDoc/${id}`,
       {
         method: "DELETE",
         headers: {

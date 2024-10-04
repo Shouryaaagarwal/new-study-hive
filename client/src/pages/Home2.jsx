@@ -38,8 +38,8 @@ function Home2() {
         </p>
 
         <SignInAs />
+      <div className="w-full md:h-[55vh] h-[55vh]  bg-black"> </div>
       </div> 
-      <div className="w-full md:h-[55vh] h-[40vh]  bg-black"> </div>
 
 
     </div>

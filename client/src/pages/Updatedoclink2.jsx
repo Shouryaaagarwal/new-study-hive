@@ -3,7 +3,7 @@ import { MdDelete } from "react-icons/md";
 import { useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router";
 import { NavLink } from "react-router-dom";
-import { formatDate } from "../../../api/Utils/date";
+import { formatDate } from "../Utils/date.js"
 import { IoArrowBack } from "react-icons/io5";
 
 function Updatedoclinks() {
@@ -26,7 +26,7 @@ function Updatedoclinks() {
     const findData = async () => {
       try {
         const res = await fetch(
-          `${process.env.BACKEND}/api/get/getsubject/${id}`,
+          `${import.meta.env.VITE_BE}/api/get/getsubject/${id}`,
           {
             method: "GET",
             headers: {
@@ -53,7 +53,7 @@ function Updatedoclinks() {
   const handleUpdate = async () => {
     try {
       const res = await fetch(
-        `${process.env.BACKEND}/api/update/subjects/${id}`,
+        `${import.meta.env.VITE_BE}/api/update/subjects/${id}`,
         {
           method: "POST",
           headers: {
@@ -85,7 +85,7 @@ function Updatedoclinks() {
   const handleDocLink = async (id, url, urlIndex) => {
     try {
       const res = await fetch(
-        `${process.env.BACKEND}/api/delete/doclink/${id}/${urlIndex}`,
+        `${import.meta.env.VITE_BE}/api/delete/doclink/${id}/${urlIndex}`,
         {
           method: "POST",
           headers: {
@@ -120,7 +120,20 @@ function Updatedoclinks() {
 
   const handleLinksAddition = () => {
     const newLink = input.trim();
-    if (newLink && isValidURL(newLink)) {
+  
+    const isValidURL = (string) => {
+      try {
+        new URL(string);
+        return true;
+      } catch (_) {
+        return false;
+      }
+    };
+  
+    if (newLink === "") {
+      setErrorMessage("URL cannot be empty.");
+      setSuccessMessage("");
+    } else if (isValidURL(newLink)) {
       if (subjectData.documentationlink.length < 3) {
         setSubjectData((prevState) => ({
           ...prevState,

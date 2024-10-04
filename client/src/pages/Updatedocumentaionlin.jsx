@@ -5,8 +5,7 @@ import { MdDelete } from "react-icons/md";
 import { useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router";
 import { NavLink } from "react-router-dom";
-import validator from "validator";
-import { formatDate } from "../../../api/Utils/date";
+import { formatDate } from "../Utils/date.js"
 import { IoArrowBack } from "react-icons/io5";
 
 function Updatedocumentaionlinks() {
@@ -28,7 +27,7 @@ function Updatedocumentaionlinks() {
   useEffect(() => {
     const findData = async () => {
       try {
-        const res = await fetch(`${process.env.BACKEND}/api/get/getsubject/${id}`, {
+        const res = await fetch(`${import.meta.env.VITE_BE}/api/get/getsubject/${id}`, {
           method: "GET",
           headers: {
             "Content-Type": "application/json",
@@ -52,7 +51,7 @@ function Updatedocumentaionlinks() {
 
   const handleUpdate = async () => {
     try {
-      const res = await fetch(`${process.env.BACKEND}/api/update/subjects/${id}`, {
+      const res = await fetch(`${import.meta.env.VITE_BE}/api/update/subjects/${id}`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -81,7 +80,7 @@ function Updatedocumentaionlinks() {
 
   const handleDocLink = async (id, url, urlIndex) => {
     try {
-      const res = await fetch(`${process.env.BACKEND}/api/delete/doclink/${id}/${urlIndex}`, {
+      const res = await fetch(`${import.meta.env.VITE_BE}/api/delete/doclink/${id}/${urlIndex}`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -101,10 +100,23 @@ function Updatedocumentaionlinks() {
       setErrorMessage("Something went wrong while deleting link.");
     }
   };
-
   const handleLinksAddition = () => {
     const newLink = input.trim();
-    if (newLink && validator.isURL(newLink)) {
+  
+    // Function to check if the URL is valid
+    const isValidURL = (string) => {
+      try {
+        new URL(string);
+        return true;
+      } catch (_) {
+        return false;
+      }
+    };
+  
+    if (newLink === "") {
+      setErrorMessage("URL cannot be empty.");
+      setSuccessMessage("");
+    } else if (isValidURL(newLink)) {
       if (subjectData.documentationlink.length < 3) {
         setSubjectData((prevState) => ({
           ...prevState,
@@ -112,15 +124,18 @@ function Updatedocumentaionlinks() {
         }));
         setInput("");
         setSuccessMessage("Document Link added successfully.");
-        setErrorMessage("");      } else {
+        setErrorMessage("");
+      } else {
         setErrorMessage("You can only add up to 3 documents.");
-        setSuccessMessage("");      }
+        setSuccessMessage("");
+      }
     } else {
       setErrorMessage("Please enter a valid URL.");
-      setSuccessMessage(""); 
-
+      setSuccessMessage("");
     }
   };
+  
+  
 
   return (
     <div className="w-full h-screen bg-black text-white">
