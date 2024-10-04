@@ -67,7 +67,7 @@ function AdminSignIn() {
           <div className="flex flex-col w-full h-[90%] gap-5 items-center">
             {errorMessage && <p className="text-red-500">{errorMessage}</p>}
             <div className="flex flex-col gap-4 items-center"> 
-            <input
+            <input 
                 type="text"
                 id="username"
                 placeholder="Admin Name"
